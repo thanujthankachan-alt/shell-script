@@ -1,0 +1,33 @@
+mysql> alter table department drop order_name;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc department;
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| dept_no | int  | NO   | PRI | NULL    |       |
++---------+------+------+-----+---------+-------+
+1 row in set (0.01 sec)
+
+mysql> insert into departments values(101);
+ERROR 1146 (42S02): Table 'firm.departments' doesn't exist
+mysql> insert into department values(101);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into department values(102);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> desc department;
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| dept_no | int  | NO   | PRI | NULL    |       |
++---------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> select*from department
+    -> 
+    -> 
+
+

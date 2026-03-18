@@ -1,0 +1,300 @@
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database firm;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use firm
+Database changed
+mysql> 
+[1]+  Stopped                 sudo mysql
+mca@mca-HP-Pro-Tower-280-G9-E-PCI-Desktop-PC:~$ use firm
+Command 'use' not found, did you mean:
+  command 'muse' from deb muse (4.0.0-1build1)
+  command 'nse' from deb ns2 (2.35+dfsg-3.1)
+  command 'ase' from deb ase (3.22.1-1ubuntu1)
+  command 'fuse' from deb fuse-emulator-gtk (1.6.0+dfsg1-2)
+  command 'fuse' from deb fuse-emulator-sdl (1.6.0+dfsg1-2)
+Try: sudo apt install <deb name>
+mca@mca-HP-Pro-Tower-280-G9-E-PCI-Desktop-PC:~$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.44-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use firm
+Database changed
+mysql> create table person(person_id int(20) primary key,name varchar(50) not null,aadhar_no varchar(30) not null unique,age int(20) check(age>18));
+Query OK, 0 rows affected, 2 warnings (0.06 sec)
+
+mysql> desc department6;
+ERROR 1146 (42S02): Table 'firm.department6' doesn't exist
+mysql> desc department;
+ERROR 1146 (42S02): Table 'firm.department' doesn't exist
+mysql> desc person;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| person_id | int         | NO   | PRI | NULL    |       |
+| name      | varchar(50) | NO   |     | NULL    |       |
+| aadhar_no | varchar(30) | NO   | UNI | NULL    |       |
+| age       | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> create table order(order_id int(20) primary key,order_name varchar(50) not null,person_id int(20) constraint foreign key references persons,(person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(20) primary key,order_name varchar(50) not null,person_id int' at line 1
+mysql> create table order(order_id int(20) primary key,order_name varchar(50) not null,(person_id) int(20) constraint foreign key references persons,(person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(20) primary key,order_name varchar(50) not null,(person_id) i' at line 1
+mysql> ^C
+mysql> create table order(order_id int(20) primary key,order_name varchar(50) not null,(person_id) int(20) constraint foreign key references persons,(person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(20) primary key,order_name varchar(50) not null,(person_id) i' at line 1
+mysql> create table orders(order_id int(20) primary key,order_name varchar(50) not null,person_id int(20)  foreign key references persons,(person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foreign key references persons,(person_id))' at line 1
+mysql> create table orders(order_id int(20) primary key,order_name varchar(50) NOT NULL,person_id int(20)  foreign key REFERENCES persons,(person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foreign key REFERENCES persons,(person_id))' at line 1
+mysql> create table orders(order_id int(20) primary key,order_name varchar(50) NOT NULL,person_id int(20), foreign key REFERENCES persons,(person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES persons,(person_id))' at line 1
+mysql> create table orders(order_id int  primary key,order_name varchar(50) NOT NULL,person_id int, foreign key REFERENCES persons (person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES persons (person_id))' at line 1
+mysql> create table orders(order_id int  primary key,order_name varchar(50) NOT NULL,person_id int, foreign key REFERENCES person (person_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES person (person_id))' at line 1
+mysql> create table orders(order_id int  primary key,order_name varchar(50) NOT NULL,person_id int, foreign key(person_id) REFERENCES person (person_id));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc orders'
+    '> desc orders;
+    '> desc orders;
+    '> desc orders;
+    '> .
+    '> ;
+    '> 5h6
+    '> rfrf;
+    '> rfrf;rtgbtv5;
+    '> 
+    '> 
+    '> desc orders;
+    '> 
+    '> create table orders(order_id int  primary key,order_name varchar(50) NOT NULL,person_id int, foreign key REFERENCES person (person_id));
+    '> de4;p;
+    '> ;l  j
+    '> desc orders;
+    '> ;
+    '> 
+[2]+  Stopped                 sudo mysql
+mca@mca-HP-Pro-Tower-280-G9-E-PCI-Desktop-PC:~$ use firm
+Command 'use' not found, did you mean:
+  command 'fuse' from deb fuse-emulator-gtk (1.6.0+dfsg1-2)
+  command 'fuse' from deb fuse-emulator-sdl (1.6.0+dfsg1-2)
+  command 'ase' from deb ase (3.22.1-1ubuntu1)
+  command 'nse' from deb ns2 (2.35+dfsg-3.1)
+  command 'muse' from deb muse (4.0.0-1build1)
+Try: sudo apt install <deb name>
+mca@mca-HP-Pro-Tower-280-G9-E-PCI-Desktop-PC:~$ sudo mysql
+[sudo] password for mca: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.44-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use firm
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> desc orders;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| order_id   | int         | NO   | PRI | NULL    |       |
+| order_name | varchar(50) | NO   |     | NULL    |       |
+| person_id  | int         | YES  | MUL | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc person;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| person_id | int         | NO   | PRI | NULL    |       |
+| name      | varchar(50) | NO   |     | NULL    |       |
+| aadhar_no | varchar(30) | NO   | UNI | NULL    |       |
+| age       | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create table employee(emp_no int(5),emp_name VARCHAR(25),place VARCHAR(30),ph_no int(12),dept_name VARCHAR(30),job_id int(5),salary int(10));
+Query OK, 0 rows affected, 4 warnings (0.04 sec)
+
+mysql> alter table employee add primary key(emp_no);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee
+    -> 
+    -> 
+[3]+  Stopped                 sudo mysql
+mca@mca-HP-Pro-Tower-280-G9-E-PCI-Desktop-PC:~$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.44-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use firm
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> decs employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'decs employee' at line 1
+mysql> desc employee;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| emp_no    | int         | NO   | PRI | NULL    |       |
+| emp_name  | varchar(25) | YES  |     | NULL    |       |
+| place     | varchar(30) | YES  |     | NULL    |       |
+| ph_no     | int         | YES  |     | NULL    |       |
+| dept_name | varchar(30) | YES  |     | NULL    |       |
+| job_id    | int         | YES  |     | NULL    |       |
+| salary    | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> create table department(dept_no int(5)emp_name VARCAHAR(20)NOT NULL,person_id int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp_name VARCAHAR(20)NOT NULL,person_id int)' at line 1
+mysql> create table department(dept_no int(5)name VARCAHAR(20) NOT NULL,person_id int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name VARCAHAR(20) NOT NULL,person_id int)' at line 1
+mysql> create table department(dept_no int(5),order_name varchar(20) NOT NULL,person_id int);
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+
+mysql> alter table department add primary key(dept_no);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc department;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| dept_no    | int         | NO   | PRI | NULL    |       |
+| order_name | varchar(20) | NO   |     | NULL    |       |
+| person_id  | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table employee modify emp_name int;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify place int;
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify dept_name int;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add foreign key(dep_no)on delete cascade;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on delete cascade' at line 1
+mysql> alter table employee change emp_no dept_no int(5);
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> alter table employee add foreign key(dep_no)on delete cascade;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'on delete cascade' at line 1
+mysql> desc department;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| dept_no    | int         | NO   | PRI | NULL    |       |
+| order_name | varchar(20) | NO   |     | NULL    |       |
+| person_id  | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc employee;
++-----------+------+------+-----+---------+-------+
+| Field     | Type | Null | Key | Default | Extra |
++-----------+------+------+-----+---------+-------+
+| dept_no   | int  | NO   | PRI | NULL    |       |
+| emp_name  | int  | YES  |     | NULL    |       |
+| place     | int  | YES  |     | NULL    |       |
+| ph_no     | int  | YES  |     | NULL    |       |
+| dept_name | int  | YES  |     | NULL    |       |
+| job_id    | int  | YES  |     | NULL    |       |
+| salary    | int  | YES  |     | NULL    |       |
++-----------+------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> 
+mysql> alter table employee add foreign key(dept_no)references department(dept_no)on delete cascade;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++-----------+------+------+-----+---------+-------+
+| Field     | Type | Null | Key | Default | Extra |
++-----------+------+------+-----+---------+-------+
+| dept_no   | int  | NO   | PRI | NULL    |       |
+| emp_name  | int  | YES  |     | NULL    |       |
+| place     | int  | YES  |     | NULL    |       |
+| ph_no     | int  | YES  |     | NULL    |       |
+| dept_name | int  | YES  |     | NULL    |       |
+| job_id    | int  | YES  |     | NULL    |       |
+| salary    | int  | YES  |     | NULL    |       |
++-----------+------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> desc department;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| dept_no    | int         | NO   | PRI | NULL    |       |
+| order_name | varchar(20) | NO   |     | NULL    |       |
+| person_id  | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table orders drop primary key;
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc orders;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| order_id   | int         | NO   |     | NULL    |       |
+| order_name | varchar(50) | NO   |     | NULL    |       |
+| person_id  | int         | YES  | MUL | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> 
+
+
